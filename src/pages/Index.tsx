@@ -2,6 +2,8 @@ import HeroSection from "@/components/HeroSection";
 import TrainerSection from "@/components/TrainerSection";
 import ProgramSection from "@/components/ProgramSection";
 import ArchitectureSection from "@/components/ArchitectureSection";
+import PricingSection from "@/components/PricingSection";
+import ContactsSection from "@/components/ContactsSection";
 import { useSparkEffect } from "@/hooks/useSparkEffect";
 
 const Index = () => {
@@ -14,6 +16,8 @@ const Index = () => {
       <TrainerSection />
       <ProgramSection />
       <ArchitectureSection />
+      <PricingSection />
+      <ContactsSection />
     </main>
   );
 };
