@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo-pikform.png";
 
@@ -11,102 +11,51 @@ interface Spark {
   size: number;
   duration: number;
   color: string;
+  trail: boolean;
 }
 
 const SPARK_COLORS = [
-  "hsl(50 100% 80%)",
-  "hsl(40 100% 70%)",
-  "hsl(30 100% 65%)",
-  "hsl(20 90% 60%)",
-  "hsl(0 80% 55%)",
-  "hsl(60 100% 90%)",
+  "#fffbe6", "#ffe066", "#ffb833", "#ff8c1a",
+  "#ff4d4d", "#ffffff", "#ffee99",
 ];
 
 const HeroSection = () => {
   const [sparks, setSparks] = useState<Spark[]>([]);
-  const [flash, setFlash] = useState(false);
+  const [flashPos, setFlashPos] = useState<{ x: number; y: number } | null>(null);
   const sparkIdRef = useRef(0);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animFrameRef = useRef<number>(0);
 
-  const handleSpark = useCallback((e: React.MouseEvent<HTMLHeadingElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  const handleSpark = useCallback((e: React.MouseEvent) => {
+    const x = e.clientX;
+    const y = e.clientY;
 
-    // Flash
-    setFlash(true);
-    setTimeout(() => setFlash(false), 150);
+    // Bright flash
+    setFlashPos({ x, y });
+    setTimeout(() => setFlashPos(null), 200);
 
-    // Sparks
-    const newSparks: Spark[] = Array.from({ length: 28 }, () => {
+    // Generate sparks
+    const newSparks: Spark[] = [];
+    for (let i = 0; i < 35; i++) {
       sparkIdRef.current += 1;
       const angle = Math.random() * Math.PI * 2;
-      const dist = 40 + Math.random() * 120;
-      return {
+      const dist = 50 + Math.random() * 150;
+      newSparks.push({
         id: sparkIdRef.current,
         x,
         y,
         tx: x + Math.cos(angle) * dist,
-        ty: y + Math.sin(angle) * dist + Math.random() * 40,
-        size: 2 + Math.random() * 5,
-        duration: 0.4 + Math.random() * 0.4,
+        ty: y + Math.sin(angle) * dist + 30 * Math.random(),
+        size: 2 + Math.random() * 6,
+        duration: 400 + Math.random() * 500,
         color: SPARK_COLORS[Math.floor(Math.random() * SPARK_COLORS.length)],
-      };
-    });
+        trail: Math.random() > 0.5,
+      });
+    }
+
     setSparks((prev) => [...prev, ...newSparks]);
+    const ids = newSparks.map((s) => s.id);
     setTimeout(() => {
-      setSparks((prev) => prev.filter((s) => !newSparks.includes(s)));
-    }, 900);
-
-    // Canvas arc flash
-    drawArc(x, y, rect.width, rect.height);
-  }, []);
-
-  const drawArc = (cx: number, cy: number, w: number, h: number) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    canvas.width = w;
-    canvas.height = h;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let frame = 0;
-    const maxFrames = 12;
-
-    const animate = () => {
-      frame++;
-      ctx.clearRect(0, 0, w, h);
-      if (frame > maxFrames) return;
-
-      const opacity = 1 - frame / maxFrames;
-      // Draw 3-4 lightning branches
-      for (let b = 0; b < 3 + Math.floor(Math.random() * 2); b++) {
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        let px = cx, py = cy;
-        const steps = 4 + Math.floor(Math.random() * 4);
-        const angle = Math.random() * Math.PI * 2;
-        for (let i = 0; i < steps; i++) {
-          px += Math.cos(angle + (Math.random() - 0.5) * 2) * (10 + Math.random() * 20);
-          py += Math.sin(angle + (Math.random() - 0.5) * 2) * (10 + Math.random() * 20);
-          ctx.lineTo(px, py);
-        }
-        ctx.strokeStyle = `hsla(40, 100%, 85%, ${opacity})`;
-        ctx.lineWidth = 1 + Math.random() * 2;
-        ctx.shadowColor = `hsla(30, 100%, 70%, ${opacity})`;
-        ctx.shadowBlur = 15;
-        ctx.stroke();
-      }
-
-      animFrameRef.current = requestAnimationFrame(animate);
-    };
-    cancelAnimationFrame(animFrameRef.current);
-    animate();
-  };
-
-  useEffect(() => {
-    return () => cancelAnimationFrame(animFrameRef.current);
+      setSparks((prev) => prev.filter((s) => !ids.includes(s.id)));
+    }, 1000);
   }, []);
 
   return (
@@ -121,6 +70,67 @@ const HeroSection = () => {
         <div className="absolute inset-0 hero-overlay" />
       </div>
 
+      {/* Spark & Flash Layer - fixed to viewport */}
+      {flashPos && (
+        <div
+          className="fixed inset-0 pointer-events-none"
+          style={{ zIndex: 9999 }}
+        >
+          {/* Central flash */}
+          <div
+            style={{
+              position: "absolute",
+              left: flashPos.x,
+              top: flashPos.y,
+              width: 300,
+              height: 300,
+              transform: "translate(-50%, -50%)",
+              background: "radial-gradient(circle, rgba(255,255,230,0.9) 0%, rgba(255,200,50,0.5) 30%, rgba(255,100,0,0.2) 60%, transparent 80%)",
+              borderRadius: "50%",
+              animation: "electric-flash 0.2s ease-out forwards",
+            }}
+          />
+          {/* Inner bright core */}
+          <div
+            style={{
+              position: "absolute",
+              left: flashPos.x,
+              top: flashPos.y,
+              width: 60,
+              height: 60,
+              transform: "translate(-50%, -50%)",
+              background: "radial-gradient(circle, #fff 0%, rgba(255,240,180,0.8) 50%, transparent 100%)",
+              borderRadius: "50%",
+              animation: "electric-flash 0.15s ease-out forwards",
+            }}
+          />
+        </div>
+      )}
+
+      {/* Spark particles - fixed to viewport */}
+      {sparks.length > 0 && (
+        <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 9998 }}>
+          {sparks.map((spark) => (
+            <div
+              key={spark.id}
+              style={{
+                position: "absolute",
+                left: spark.x,
+                top: spark.y,
+                width: spark.size,
+                height: spark.trail ? spark.size * 3 : spark.size,
+                borderRadius: spark.trail ? "50% 50% 50% 50% / 30% 30% 70% 70%" : "50%",
+                background: spark.color,
+                boxShadow: `0 0 ${spark.size * 2}px ${spark.size}px ${spark.color}`,
+                animation: `spark-move ${spark.duration}ms ease-out forwards`,
+                "--spark-end-x": `${spark.tx - spark.x}px`,
+                "--spark-end-y": `${spark.ty - spark.y}px`,
+              } as React.CSSProperties}
+            />
+          ))}
+        </div>
+      )}
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Logo */}
@@ -134,37 +144,10 @@ const HeroSection = () => {
 
         {/* UTP - Neon glow + sparks on click */}
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight cursor-pointer select-none relative overflow-visible"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight cursor-pointer select-none"
           onClick={handleSpark}
         >
-          {/* Flash overlay */}
-          {flash && (
-            <span className="absolute inset-0 rounded-lg pointer-events-none spark-flash" />
-          )}
-          {/* Canvas for lightning arcs */}
-          <canvas
-            ref={canvasRef}
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            style={{ zIndex: 20 }}
-          />
           Раскрой свой <span className="neon-text">предел силы</span>
-          {sparks.map((spark) => (
-            <span
-              key={spark.id}
-              className="spark-particle"
-              style={{
-                left: spark.x,
-                top: spark.y,
-                width: spark.size,
-                height: spark.size,
-                background: spark.color,
-                boxShadow: `0 0 8px 3px ${spark.color}, 0 0 20px 6px hsl(30 100% 60% / 0.4)`,
-                '--spark-tx': `${spark.tx - spark.x}px`,
-                '--spark-ty': `${spark.ty - spark.y}px`,
-                animationDuration: `${spark.duration}s`,
-              } as React.CSSProperties}
-            />
-          ))}
         </h1>
 
         {/* UTP 2 - Glitch */}
