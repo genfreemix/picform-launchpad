@@ -1,7 +1,43 @@
+import { useState, useCallback, useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo-pikform.png";
 
+interface Spark {
+  id: number;
+  x: number;
+  y: number;
+  angle: number;
+  distance: number;
+  size: number;
+  duration: number;
+}
+
 const HeroSection = () => {
+  const [sparks, setSparks] = useState<Spark[]>([]);
+  const sparkIdRef = useRef(0);
+
+  const handleSpark = useCallback((e: React.MouseEvent<HTMLHeadingElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const newSparks: Spark[] = Array.from({ length: 18 }, () => {
+      sparkIdRef.current += 1;
+      return {
+        id: sparkIdRef.current,
+        x,
+        y,
+        angle: Math.random() * 360,
+        distance: 30 + Math.random() * 80,
+        size: 2 + Math.random() * 4,
+        duration: 0.3 + Math.random() * 0.5,
+      };
+    });
+    setSparks((prev) => [...prev, ...newSparks]);
+    setTimeout(() => {
+      setSparks((prev) => prev.filter((s) => !newSparks.includes(s)));
+    }, 800);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
@@ -25,10 +61,33 @@ const HeroSection = () => {
           />
         </div>
 
-        {/* UTP */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight">
-          Раскрой свой <span className="text-gradient-fire">предел силы</span>
+        {/* UTP - Neon glow + sparks on click */}
+        <h1
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight cursor-pointer select-none relative"
+          onClick={handleSpark}
+        >
+          Раскрой свой <span className="neon-text">предел силы</span>
+          {sparks.map((spark) => (
+            <span
+              key={spark.id}
+              className="spark"
+              style={{
+                left: spark.x,
+                top: spark.y,
+                width: spark.size,
+                height: spark.size,
+                '--spark-angle': `${spark.angle}deg`,
+                '--spark-distance': `${spark.distance}px`,
+                animationDuration: `${spark.duration}s`,
+              } as React.CSSProperties}
+            />
+          ))}
         </h1>
+
+        {/* UTP 2 - Glitch */}
+        <p className="glitch-text text-xl md:text-2xl lg:text-3xl font-display font-bold uppercase tracking-widest mb-4" data-text="ПИКФОРМ — ультрановая система поэтапной трансформации тела и характера">
+          ПИКФОРМ — ультрановая система поэтапной трансформации тела и характера
+        </p>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 font-body">
           Единственный премиальный кроссфит зал с персональным подходом к каждому атлету
