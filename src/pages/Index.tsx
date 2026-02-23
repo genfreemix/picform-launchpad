@@ -4,6 +4,7 @@ import ProgramSection from "@/components/ProgramSection";
 import ArchitectureSection from "@/components/ArchitectureSection";
 import PricingSection from "@/components/PricingSection";
 import ContactsSection from "@/components/ContactsSection";
+import LampDivider from "@/components/LampDivider";
 import { useSparkEffect } from "@/hooks/useSparkEffect";
 
 const Index = () => {
@@ -13,10 +14,15 @@ const Index = () => {
     <main className="bg-background min-h-screen" onClick={triggerSpark}>
       <SparkLayer />
       <HeroSection />
+      <LampDivider />
       <TrainerSection />
+      <LampDivider />
       <ProgramSection />
+      <LampDivider />
       <ArchitectureSection />
+      <LampDivider />
       <PricingSection />
+      <LampDivider />
       <ContactsSection />
     </main>
   );
