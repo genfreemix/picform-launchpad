@@ -83,6 +83,13 @@ const ContactsSection = () => {
             </button>
           </form>
         </div>
+
+        <h2
+          className="neon-text text-3xl md:text-5xl lg:text-6xl font-bold text-center mt-16 uppercase tracking-wider"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          Время сильных решений
+        </h2>
       </div>
     </section>
   );
