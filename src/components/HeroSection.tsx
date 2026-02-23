@@ -32,7 +32,7 @@ const HeroSection = () => {
 
         {/* UTP - Neon glow + sparks on click */}
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight cursor-pointer select-none"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight select-none"
           onClick={triggerSpark}
         >
           Раскрой свой <span className="neon-text">предел силы</span>
