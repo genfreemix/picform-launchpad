@@ -2,7 +2,7 @@ import trainerImg from "@/assets/trainer.png";
 
 const TrainerSection = () => {
   return (
-    <section id="trainer" className="section-dark py-20 md:py-28">
+    <section id="trainer" className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-primary font-display text-sm tracking-[0.3em] mb-2 uppercase">
