@@ -30,12 +30,12 @@ const HeroSection = () => {
         <h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight select-none"
         >
-          Раскрой свой <span className="neon-text">предел силы</span>
+          <span className="neon-text">Раскрой свой</span> <span className="neon-text">предел</span>
         </h1>
 
         {/* UTP 2 - Glitch */}
-        <p className="glitch-text text-xl md:text-2xl lg:text-3xl font-display font-bold uppercase tracking-widest mb-4" data-text="ПИКФОРМ — ультрановая система поэтапной трансформации тела и характера">
-          ПИКФОРМ — ультрановая система поэтапной трансформации тела и характера
+        <p className="glitch-text text-xl md:text-2xl lg:text-3xl font-display font-bold uppercase tracking-widest mb-4" data-text="Ультрановая система поэтапной трансформации тела и характера">
+          Ультрановая система поэтапной трансформации тела и характера
         </p>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 font-body">
