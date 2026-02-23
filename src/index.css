@@ -53,11 +53,20 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: default;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+  }
+
+  a, button, [role="button"] {
+    cursor: pointer;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    cursor: default;
   }
 
   h1, h2, h3, h4, h5, h6 {
