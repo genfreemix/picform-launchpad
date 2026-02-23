@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo-pikform.png";
 
@@ -6,36 +6,107 @@ interface Spark {
   id: number;
   x: number;
   y: number;
-  angle: number;
-  distance: number;
+  tx: number;
+  ty: number;
   size: number;
   duration: number;
+  color: string;
 }
+
+const SPARK_COLORS = [
+  "hsl(50 100% 80%)",
+  "hsl(40 100% 70%)",
+  "hsl(30 100% 65%)",
+  "hsl(20 90% 60%)",
+  "hsl(0 80% 55%)",
+  "hsl(60 100% 90%)",
+];
 
 const HeroSection = () => {
   const [sparks, setSparks] = useState<Spark[]>([]);
+  const [flash, setFlash] = useState(false);
   const sparkIdRef = useRef(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animFrameRef = useRef<number>(0);
 
   const handleSpark = useCallback((e: React.MouseEvent<HTMLHeadingElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const newSparks: Spark[] = Array.from({ length: 18 }, () => {
+
+    // Flash
+    setFlash(true);
+    setTimeout(() => setFlash(false), 150);
+
+    // Sparks
+    const newSparks: Spark[] = Array.from({ length: 28 }, () => {
       sparkIdRef.current += 1;
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 40 + Math.random() * 120;
       return {
         id: sparkIdRef.current,
         x,
         y,
-        angle: Math.random() * 360,
-        distance: 30 + Math.random() * 80,
-        size: 2 + Math.random() * 4,
-        duration: 0.3 + Math.random() * 0.5,
+        tx: x + Math.cos(angle) * dist,
+        ty: y + Math.sin(angle) * dist + Math.random() * 40,
+        size: 2 + Math.random() * 5,
+        duration: 0.4 + Math.random() * 0.4,
+        color: SPARK_COLORS[Math.floor(Math.random() * SPARK_COLORS.length)],
       };
     });
     setSparks((prev) => [...prev, ...newSparks]);
     setTimeout(() => {
       setSparks((prev) => prev.filter((s) => !newSparks.includes(s)));
-    }, 800);
+    }, 900);
+
+    // Canvas arc flash
+    drawArc(x, y, rect.width, rect.height);
+  }, []);
+
+  const drawArc = (cx: number, cy: number, w: number, h: number) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let frame = 0;
+    const maxFrames = 12;
+
+    const animate = () => {
+      frame++;
+      ctx.clearRect(0, 0, w, h);
+      if (frame > maxFrames) return;
+
+      const opacity = 1 - frame / maxFrames;
+      // Draw 3-4 lightning branches
+      for (let b = 0; b < 3 + Math.floor(Math.random() * 2); b++) {
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        let px = cx, py = cy;
+        const steps = 4 + Math.floor(Math.random() * 4);
+        const angle = Math.random() * Math.PI * 2;
+        for (let i = 0; i < steps; i++) {
+          px += Math.cos(angle + (Math.random() - 0.5) * 2) * (10 + Math.random() * 20);
+          py += Math.sin(angle + (Math.random() - 0.5) * 2) * (10 + Math.random() * 20);
+          ctx.lineTo(px, py);
+        }
+        ctx.strokeStyle = `hsla(40, 100%, 85%, ${opacity})`;
+        ctx.lineWidth = 1 + Math.random() * 2;
+        ctx.shadowColor = `hsla(30, 100%, 70%, ${opacity})`;
+        ctx.shadowBlur = 15;
+        ctx.stroke();
+      }
+
+      animFrameRef.current = requestAnimationFrame(animate);
+    };
+    cancelAnimationFrame(animFrameRef.current);
+    animate();
+  };
+
+  useEffect(() => {
+    return () => cancelAnimationFrame(animFrameRef.current);
   }, []);
 
   return (
@@ -63,21 +134,33 @@ const HeroSection = () => {
 
         {/* UTP - Neon glow + sparks on click */}
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight cursor-pointer select-none relative"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight cursor-pointer select-none relative overflow-visible"
           onClick={handleSpark}
         >
+          {/* Flash overlay */}
+          {flash && (
+            <span className="absolute inset-0 rounded-lg pointer-events-none spark-flash" />
+          )}
+          {/* Canvas for lightning arcs */}
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            style={{ zIndex: 20 }}
+          />
           Раскрой свой <span className="neon-text">предел силы</span>
           {sparks.map((spark) => (
             <span
               key={spark.id}
-              className="spark"
+              className="spark-particle"
               style={{
                 left: spark.x,
                 top: spark.y,
                 width: spark.size,
                 height: spark.size,
-                '--spark-angle': `${spark.angle}deg`,
-                '--spark-distance': `${spark.distance}px`,
+                background: spark.color,
+                boxShadow: `0 0 8px 3px ${spark.color}, 0 0 20px 6px hsl(30 100% 60% / 0.4)`,
+                '--spark-tx': `${spark.tx - spark.x}px`,
+                '--spark-ty': `${spark.ty - spark.y}px`,
                 animationDuration: `${spark.duration}s`,
               } as React.CSSProperties}
             />
