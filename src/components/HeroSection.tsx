@@ -34,7 +34,7 @@ const HeroSection = () => {
         </h1>
 
         {/* UTP 2 - Glitch */}
-        <p className="glitch-text text-xl md:text-2xl lg:text-3xl font-display font-bold uppercase tracking-widest mb-4" data-text="Ультрановая система поэтапной трансформации тела и характера">
+        <p className="glitch-text text-base md:text-xl lg:text-2xl font-display font-bold uppercase tracking-widest mb-4 whitespace-nowrap" data-text="Ультрановая система поэтапной трансформации тела и характера">
           Ультрановая система поэтапной трансформации тела и характера
         </p>
 
