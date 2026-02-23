@@ -38,8 +38,8 @@ const HeroSection = () => {
           Ультрановая система поэтапной трансформации тела и характера
         </p>
 
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 font-body">
-          Единственный премиальный кроссфит зал с персональным подходом к каждому атлету
+        <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto mb-4 font-body">
+          Единственный кроссфит зал с персональным подходом к каждому клиенту
         </p>
 
         {/* Offer */}
