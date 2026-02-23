@@ -1,13 +1,9 @@
 import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo-pikform.png";
-import { useSparkEffect } from "@/hooks/useSparkEffect";
 
 const HeroSection = () => {
-  const { triggerSpark, SparkLayer } = useSparkEffect();
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <SparkLayer />
 
       {/* Background */}
       <div className="absolute inset-0">
@@ -33,7 +29,6 @@ const HeroSection = () => {
         {/* UTP - Neon glow + sparks on click */}
         <h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight select-none"
-          onClick={triggerSpark}
         >
           Раскрой свой <span className="neon-text">предел силы</span>
         </h1>
@@ -57,14 +52,12 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#trainer"
-            onClick={triggerSpark}
             className="bg-primary hover:bg-primary/80 text-primary-foreground font-display text-lg px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 uppercase tracking-wider"
           >
             Записаться на тренировку
           </a>
           <a
             href="#trainer"
-            onClick={triggerSpark}
             className="border border-foreground/30 text-foreground hover:bg-foreground/10 font-display text-lg px-8 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider"
           >
             Узнать больше

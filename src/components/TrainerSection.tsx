@@ -1,11 +1,8 @@
 import trainerImg from "@/assets/trainer.png";
-import { useSparkEffect } from "@/hooks/useSparkEffect";
 
 const TrainerSection = () => {
-  const { triggerSpark, SparkLayer } = useSparkEffect();
   return (
     <section id="trainer" className="section-dark py-20 md:py-28">
-      <SparkLayer />
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-primary font-display text-sm tracking-[0.3em] mb-2 uppercase">
@@ -63,7 +60,6 @@ const TrainerSection = () => {
 
             <a
               href="#"
-              onClick={triggerSpark}
               className="inline-block bg-primary hover:bg-primary/80 text-primary-foreground font-display text-lg px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 uppercase tracking-wider mt-4"
             >
               Записаться к тренеру
