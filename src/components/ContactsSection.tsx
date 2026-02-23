@@ -1,7 +1,7 @@
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const contactInfo = [
-  { icon: MapPin, label: "Адрес", value: "г. Москва, ул. Спортивная, 12" },
+  { icon: MapPin, label: "Адрес", value: "Рязань" },
   { icon: Phone, label: "Телефон", value: "+7 (999) 123-45-67" },
   { icon: Mail, label: "Email", value: "info@pikform.ru" },
   { icon: Clock, label: "Режим работы", value: "Пн–Сб: 7:00–22:00, Вс: 9:00–20:00" },

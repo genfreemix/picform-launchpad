@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 const plans = [
   {
     name: "Базовый",
-    price: "3 900",
+    price: "3 000",
     period: "мес",
     features: [
       "Доступ в зал без ограничений",
@@ -15,7 +15,7 @@ const plans = [
   },
   {
     name: "Про",
-    price: "6 900",
+    price: "5 000",
     period: "мес",
     features: [
       "Всё из «Базового»",
@@ -28,7 +28,7 @@ const plans = [
   },
   {
     name: "Элит",
-    price: "12 900",
+    price: "9 000",
     period: "мес",
     features: [
       "Всё из «Про»",
