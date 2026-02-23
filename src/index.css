@@ -105,31 +105,18 @@
     to { text-shadow: 0 0 10px hsl(0 80% 55% / 1), 0 0 30px hsl(0 80% 55% / 0.8), 0 0 60px hsl(0 80% 55% / 0.5), 0 0 100px hsl(20 90% 55% / 0.4), 0 0 150px hsl(20 90% 55% / 0.2); }
   }
 
-  /* Spark particles */
-  .spark-particle {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 30;
-    animation: spark-fly-real linear forwards;
+  /* Electric flash */
+  @keyframes electric-flash {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(0.3); }
+    40% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
   }
 
-  @keyframes spark-fly-real {
+  /* Spark movement */
+  @keyframes spark-move {
     0% { opacity: 1; transform: translate(0, 0) scale(1); }
-    30% { opacity: 1; }
-    100% { opacity: 0; transform: translate(var(--spark-tx), var(--spark-ty)) scale(0.2); }
-  }
-
-  /* Flash on click */
-  .spark-flash {
-    background: radial-gradient(circle, hsl(45 100% 90% / 0.7) 0%, hsl(30 100% 70% / 0.3) 40%, transparent 70%);
-    z-index: 15;
-    animation: flash-burst 0.15s ease-out forwards;
-  }
-
-  @keyframes flash-burst {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(var(--spark-end-x), var(--spark-end-y)) scale(0); }
   }
 
   /* Glitch text */
