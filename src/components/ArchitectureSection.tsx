@@ -2,7 +2,7 @@ import architectureImg from "@/assets/architecture-transform.png";
 
 const ArchitectureSection = () => {
   return (
-    <section className="section-dark py-20 md:py-28">
+    <section className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <img
           src={architectureImg}

@@ -180,7 +180,7 @@ const LampDivider = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-24 md:h-32 overflow-hidden pointer-events-none">
+    <div className="relative w-full h-16 md:h-20 overflow-hidden pointer-events-none">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"

@@ -9,7 +9,7 @@ const contactInfo = [
 
 const ContactsSection = () => {
   return (
-    <section className="section-dark py-20 md:py-28">
+    <section className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
           Связаться с нами
