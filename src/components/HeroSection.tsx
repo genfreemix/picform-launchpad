@@ -76,7 +76,7 @@ const HeroSection = () => {
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-xl mx-auto">
           {[
             { value: "10+", label: "Лет опыта тренера" },
-            { value: "до 6", label: "Человек в группе" },
+            { value: "19", label: "Организовано турниров" },
             { value: "8", label: "Недель до результата" },
           ].map((stat) => (
             <div key={stat.label}>
