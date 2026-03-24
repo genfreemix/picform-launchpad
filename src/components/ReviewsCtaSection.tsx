@@ -5,7 +5,7 @@ const ReviewsCtaSection = () => {
         <p className="text-muted-foreground text-sm font-body mb-1">
           Разница не в мотивации — в системе.
         </p>
-        <p className="text-muted-foreground text-sm font-body mb-5">
+        <p className="text-muted-foreground text-sm font-body mb-3">
           Чтобы начать, нужно понять свой уровень.
         </p>
         <p
