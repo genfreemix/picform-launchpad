@@ -23,13 +23,13 @@ const formats = [
 
 const FormatsSection = () => {
   return (
-    <section className="section-dark py-10 md:py-14">
+    <section className="section-dark py-8 md:py-10">
       <div className="container mx-auto px-4">
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
           Форматы тренировок
         </p>
         <h2
-          className="text-3xl md:text-5xl font-bold text-foreground text-center mb-4"
+          className="text-2xl md:text-4xl font-bold text-foreground text-center mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Внутри системы

@@ -36,7 +36,7 @@ const ResultSection = () => {
           Что ты получаешь
         </p>
         <h2
-          className="text-3xl md:text-5xl font-bold text-foreground text-center mb-12"
+          className="text-2xl md:text-4xl font-bold text-foreground text-center mb-10"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Результат системы

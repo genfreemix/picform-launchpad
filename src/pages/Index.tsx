@@ -5,6 +5,7 @@ import ProgramSection from "@/components/ProgramSection";
 import FormatsSection from "@/components/FormatsSection";
 import TrainingProcessSection from "@/components/TrainingProcessSection";
 import ResultSection from "@/components/ResultSection";
+import WhyItWorksSection from "@/components/WhyItWorksSection";
 import ArchitectureSection from "@/components/ArchitectureSection";
 import PricingSection from "@/components/PricingSection";
 import ReferralSection from "@/components/ReferralSection";
@@ -31,6 +32,8 @@ const Index = () => {
       <TrainingProcessSection />
       <LampDivider />
       <ResultSection />
+      <LampDivider />
+      <WhyItWorksSection />
       <LampDivider />
       <ArchitectureSection />
       <LampDivider />
