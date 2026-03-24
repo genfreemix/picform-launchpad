@@ -55,7 +55,7 @@ const HookSection = () => {
             className="text-lg md:text-xl font-bold text-foreground text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Решение — прогрессивная система тренировок и контроль прогресса
+            Решение — прогрессивная система тренировок и контроль результата
           </p>
         </div>
       </div>
