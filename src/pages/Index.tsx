@@ -18,6 +18,7 @@ const Index = () => {
   const [messages, setMessages] = useState<Array<{ id: number; email: string; message: string; created_at: string }>>([]);
 
   const fetchMessages = useCallback(async () => {
+    if (!supabase) return;
     const { data, error } = await supabase
       .from("submissions")
       .select("id, email, message, created_at")
@@ -36,6 +37,7 @@ const Index = () => {
   }, [fetchMessages]);
 
   const handleTestSubmit = async () => {
+    if (!supabase) return;
     setStatusMsg(null);
     const { error } = await supabase
       .from("submissions")

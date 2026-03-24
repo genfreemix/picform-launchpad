@@ -11,6 +11,7 @@ const AuthPanel = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
+    if (!supabase) return;
     supabase.auth.getUser().then(({ data }) => setUser(data.user));
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -25,6 +26,7 @@ const AuthPanel = () => {
     setStatus(null);
 
     if (isRegister) {
+      if (!supabase) return;
       const { error } = await supabase.auth.signUp({ email, password });
       if (error) {
         setStatus(error.message);
@@ -32,6 +34,7 @@ const AuthPanel = () => {
         setStatus("Регистрация успешна! Проверьте почту для подтверждения.");
       }
     } else {
+      if (!supabase) return;
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         setStatus(error.message);
@@ -43,6 +46,7 @@ const AuthPanel = () => {
   };
 
   const handleLogout = async () => {
+    if (!supabase) return;
     await supabase.auth.signOut();
     setStatus(null);
   };
