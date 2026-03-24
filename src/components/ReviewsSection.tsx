@@ -27,7 +27,7 @@
 
 const ReviewsSection = () => {
   return (
-    <section id="reviews" className="section-dark py-10 md:py-14">
+    <section id="reviews" className="section-dark pt-10 pb-4 md:pt-14 md:pb-6">
       <div className="container mx-auto px-4">
         <h2
           className="text-2xl md:text-4xl font-bold text-foreground text-center mb-10"

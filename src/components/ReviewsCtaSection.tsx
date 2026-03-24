@@ -1,6 +1,6 @@
 const ReviewsCtaSection = () => {
   return (
-    <section className="section-dark py-8 md:py-10">
+    <section className="section-dark pt-4 pb-8 md:pt-6 md:pb-10">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <p className="text-muted-foreground text-sm font-body mb-1">
           Разница не в мотивации — в системе.
