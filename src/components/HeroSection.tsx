@@ -26,30 +26,28 @@ const HeroSection = () => {
           />
         </div>
 
-        {/* UTP - Neon glow + sparks on click */}
+        {/* Headline */}
         <h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight select-none"
         >
-          <span className="neon-text">Верни форму.</span> <span className="neon-text">Силу. Контроль.</span>
+          <span className="neon-text">Верни форму и силу</span>{" "}
+          <span className="neon-text">за 8 недель</span>
         </h1>
 
-        {/* UTP 2 - Glitch */}
-        <p className="glitch-text text-base md:text-xl lg:text-2xl font-display font-bold uppercase tracking-widest mb-4" data-text="Системные тренировки · Контроль прогресса · Результат за 8 недель">
-          Системные тренировки · Контроль прогресса · Результат за 8 недель
-        </p>
-
-        <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-4 font-body">
-          Малые группы до 6 человек. Контроль техники. Измеримый прогресс каждую неделю.
+        {/* Subheadline */}
+        <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-6 font-body leading-relaxed">
+          Системные тренировки с контролем прогресса<br className="hidden md:block" />
+          в окружении людей, которые работают на результат
         </p>
 
         {/* Offer */}
-        <div className="inline-block bg-primary/20 border border-primary/40 rounded-lg px-6 py-3 mb-8">
+        <div className="inline-block bg-primary/20 border border-primary/40 rounded-lg px-6 py-3 mb-6">
           <p className="text-primary-foreground font-display text-lg md:text-xl tracking-wide">
             🔥 Первая тренировка — <span className="text-gradient-fire font-bold">БЕСПЛАТНО</span>
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
           <a
             href="#trainer"
             className="bg-primary hover:bg-primary/80 text-primary-foreground font-display text-lg px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 uppercase tracking-wider"
@@ -62,6 +60,16 @@ const HeroSection = () => {
           >
             Узнать свой уровень
           </a>
+        </div>
+
+        {/* Micro-benefits */}
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-12">
+          {["Без перегруза", "Под твой уровень", "С понятным прогрессом"].map((b) => (
+            <span key={b} className="text-muted-foreground text-sm font-body flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary/60 inline-block" />
+              {b}
+            </span>
+          ))}
         </div>
 
         {/* Stats */}

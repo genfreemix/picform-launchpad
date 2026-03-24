@@ -52,13 +52,13 @@ const PricingSection = () => {
           className="text-3xl md:text-5xl font-bold text-foreground text-center mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Выбери свой формат
+          Формат участия
         </h2>
         <p className="text-muted-foreground text-center max-w-xl mx-auto mb-4" style={{ fontFamily: "var(--font-body)" }}>
           Разовое посещение — <span className="text-accent font-semibold">1 500 ₽</span>, консультация бесплатна
         </p>
         <p className="text-muted-foreground text-center max-w-xl mx-auto mb-14 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-          Абонемент — это не просто доступ в зал. Это работа по системе с контролем прогресса.
+          Абонемент — это не просто доступ в зал. Это системные тренировки с контролем прогресса и коррекцией нагрузки.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -73,7 +73,7 @@ const PricingSection = () => {
             >
               {plan.highlighted && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
-                  Популярный
+                  Оптимальный для результата
                 </span>
               )}
               <h3
@@ -104,7 +104,7 @@ const PricingSection = () => {
                 }`}
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Начать тренировки
+                Начать систему
               </button>
             </div>
           ))}

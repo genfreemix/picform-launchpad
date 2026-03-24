@@ -104,7 +104,7 @@ const ReferralSection = () => {
               className="inline-block py-3 px-8 rounded-lg bg-accent text-accent-foreground font-semibold text-sm uppercase tracking-wider hover:bg-accent/90 transition-all duration-300 shadow-lg shadow-accent/25"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Узнать подробнее
+              Записаться вместе
             </a>
           </div>
         </div>

@@ -1,24 +1,32 @@
-import { Star } from "lucide-react";
+﻿import { Star } from "lucide-react";
 
 const reviews = [
   {
     name: "Александра",
-    text: "Занимаюсь третий месяц. Пришла после долгого перерыва — не могла выполнить базовые упражнения. Сейчас делаю комплексы наравне с группой. Тренер сразу определил слабые места и подобрал подводящие упражнения.",
+    result: "С нуля до полных комплексов",
+    period: "3 месяца",
+    text: "Пришла после долгого перерыва — не могла выполнить базовые упражнения. Тренер подобрал подводящие, адаптировал нагрузку. Сейчас работаю наравне с группой.",
     source: "VK",
   },
   {
     name: "Денис",
-    text: "За первые 8 недель вырос в приседе на 20 кг, стал увереннее в рывке. Тренер контролирует технику и корректирует программу под уровень. Зал оснащён всем необходимым — приходишь и работаешь.",
+    result: "+20 кг в приседе",
+    period: "8 недель",
+    text: "Стал увереннее в рывке. Тренер контролирует технику и корректирует программу под уровень. Приходишь и работаешь.",
     source: "Яндекс Карты",
   },
   {
     name: "Максим",
-    text: "4 месяца тренировок. Сила и выносливость выросли заметно. Группы маленькие — тренер видит каждого. Сергей знает дело и умеет объяснить технику.",
+    result: "Заметный рост силы и выносливости",
+    period: "4 месяца",
+    text: "Группы маленькие — тренер видит каждого. Сергей знает дело и умеет объяснить технику так, что всё понятно.",
     source: "Яндекс Карты",
   },
   {
     name: "Александр",
-    text: "2 месяца занятий. Тренировки каждый раз разные, но чувствуется система — нагрузка растёт плавно и контролируемо. Результат уже есть.",
+    result: "Стабильный прогресс с первого месяца",
+    period: "2 месяца",
+    text: "Тренировки каждый раз разные, но чувствуется система — нагрузка растёт плавно. Результат уже есть.",
     source: "VK",
   },
 ];
@@ -34,41 +42,46 @@ const ReviewsSection = () => {
           className="text-3xl md:text-5xl font-bold text-foreground text-center mb-3"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Что говорят те, кто уже тренируется
+          Конкретные результаты, а не обещания
         </h2>
         <p
           className="text-muted-foreground/70 text-center text-sm max-w-md mx-auto mb-12"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Конкретные результаты, а не общие слова
+          Реальные отзывы с указанием сроков
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="bg-card border border-border rounded-xl p-4 hover:border-accent/40 transition-all duration-300"
+              className="bg-card/50 border border-border/60 rounded-xl p-4 hover:border-accent/30 transition-all duration-300"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm">
-                  {review.name[0]}
-                </div>
-                <div>
-                  <p className="text-foreground font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-xs">
+                    {review.name[0]}
+                  </div>
+                  <p className="text-foreground font-semibold text-sm" style={{ fontFamily: "var(--font-display)" }}>
                     {review.name}
                   </p>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_: unknown, j: number) => (
+                    <Star key={j} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-accent font-semibold text-sm" style={{ fontFamily: "var(--font-display)" }}>
+                  {review.result}
+                </span>
+                <span className="text-muted-foreground/60 text-xs">
+                  — {review.period}
+                </span>
+              </div>
+              <p className="text-muted-foreground text-xs leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
                 {review.text}
-              </p>
-              <p className="text-xs text-muted-foreground/60 mt-3">
-                Источник: {review.source}
               </p>
             </div>
           ))}

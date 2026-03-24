@@ -12,13 +12,13 @@ const ContactsSection = () => {
     <section id="contacts" className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
-          Связаться с нами
+          Начать
         </p>
         <h2
           className="text-3xl md:text-5xl font-bold text-foreground text-center mb-14"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Контакты
+          Записаться на тренировку
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
