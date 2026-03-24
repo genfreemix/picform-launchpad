@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import HookSection from "@/components/HookSection";
+import HookCtaSection from "@/components/HookCtaSection";
 import TrainerSection from "@/components/TrainerSection";
 import ProgramSection from "@/components/ProgramSection";
 import FormatsSection from "@/components/FormatsSection";
@@ -23,6 +24,7 @@ const Index = () => {
       <SparkLayer />
       <HeroSection />
       <HookSection />
+      <HookCtaSection />
       <LampDivider />
       <TrainerSection />
       <LampDivider />
