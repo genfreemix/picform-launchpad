@@ -1,6 +1,4 @@
-﻿import { MessageCircle } from "lucide-react";
-
-const reviews = [
+﻿const reviews = [
   {
     name: "Александра, 29",
     result: "\u20135 кг за 2 месяца",
@@ -27,32 +25,16 @@ const reviews = [
   },
 ];
 
-const microReviews = [
-  "\u00ABПриходишь \u2014 и просто делаешь по плану\u00BB",
-  "\u00ABПервый раз не бросил после месяца\u00BB",
-  "\u00ABНагрузка понятная, без перегруза\u00BB",
-  "\u00ABТренер вовремя тормозит, когда нужно\u00BB",
-];
-
 const ReviewsSection = () => {
   return (
     <section id="reviews" className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
-        <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
-          Участники
-        </p>
         <h2
-          className="text-2xl md:text-4xl font-bold text-foreground text-center mb-3"
+          className="text-2xl md:text-4xl font-bold text-foreground text-center mb-10"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Как меняются люди за 8\u201312 недель
+          Результаты после 8 недель тренировок
         </h2>
-        <p
-          className="text-muted-foreground/70 text-center text-sm max-w-md mx-auto mb-10"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          Конкретные изменения за конкретный срок
-        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {reviews.map((review, i) => (
@@ -82,23 +64,6 @@ const ReviewsSection = () => {
               </p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-14 mb-0">
-          <p
-            className="text-muted-foreground text-sm text-center mb-5 font-body"
-          >
-            Поэтому люди не сливаются:
-          </p>
-
-          <div className="flex flex-col items-center gap-2.5 max-w-md mx-auto">
-            {microReviews.map((m, i) => (
-              <div key={i} className="flex items-start gap-2 text-muted-foreground/70 text-xs font-body">
-                <MessageCircle className="w-3.5 h-3.5 text-accent/40 shrink-0 mt-0.5" />
-                <span>{m}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
