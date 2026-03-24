@@ -11,6 +11,7 @@ import ArchitectureSection from "@/components/ArchitectureSection";
 import PricingSection from "@/components/PricingSection";
 import ReferralSection from "@/components/ReferralSection";
 import ReviewsSection from "@/components/ReviewsSection";
+import ReviewsCtaSection from "@/components/ReviewsCtaSection";
 import ContactsSection from "@/components/ContactsSection";
 import CtaFinalSection from "@/components/CtaFinalSection";
 import LampDivider from "@/components/LampDivider";
@@ -44,6 +45,7 @@ const Index = () => {
       <ReferralSection />
       <LampDivider />
       <ReviewsSection />
+      <ReviewsCtaSection />
       <LampDivider />
       <ContactsSection />
       <CtaFinalSection />
