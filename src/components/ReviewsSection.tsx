@@ -1,26 +1,37 @@
-﻿import { Star } from "lucide-react";
+﻿import { Star, MessageCircle } from "lucide-react";
 
 const reviews = [
   {
     name: "Александра, 29",
     result: "\u20135 кг за 2 месяца",
-    text: "Стала тренироваться регулярно, появилась энергия. Нагрузка растёт плавно — не страшно начинать.",
+    was: "Ходила в зал без плана. Делала кардио и пресс, но ничего не менялось.",
+    became: "Появился план, нагрузка стала расти. Тело начало меняться на третьей неделе.",
   },
   {
     name: "Денис, 31",
     result: "+20 кг в приседе за 8 недель",
-    text: "Тренер контролирует технику на каждом подходе. Стал увереннее в движениях, прогресс ощутимый.",
+    was: "Тренировался сам, техника хромала. Боялся увеличивать веса.",
+    became: "Тренер поставил технику, начал добавлять вес каждую неделю. Без боли, без срывов.",
   },
   {
     name: "Максим, 36",
     result: "Вернул форму за 3 месяца",
-    text: "Появилась система, стало легче держать режим. Группы маленькие — внимание к каждому.",
+    was: "После 30 забросил спорт. Пробовал бегать \u2014 хватало на 2 недели.",
+    became: "Расписание и группа держат в процессе. Не приходится заставлять себя.",
   },
   {
     name: "Иван, 34",
-    result: "Стабильные тренировки 3 раза в неделю",
-    text: "Раньше бросал через 2 недели. Здесь чувствуется структура — нагрузка понятная, прогресс виден.",
+    result: "3 тренировки в неделю \u2014 уже 4 месяца",
+    was: "Покупал абонементы и бросал. Не понимал, зачем какое упражнение.",
+    became: "Каждая тренировка понятная. Вижу, зачем делаю и куда двигаюсь.",
   },
+];
+
+const microReviews = [
+  "\u00ABЗдесь не надо думать, что делать \u2014 приходишь и работаешь по плану\u00BB",
+  "\u00ABПервый раз не бросил после первого месяца\u00BB",
+  "\u00ABНагрузка понятная, тренер видит, когда тяжело\u00BB",
+  "\u00ABНе чувствуешь себя новичком \u2014 все работают на своём уровне\u00BB",
 ];
 
 const ReviewsSection = () => {
@@ -34,7 +45,7 @@ const ReviewsSection = () => {
           className="text-2xl md:text-4xl font-bold text-foreground text-center mb-3"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Результаты, которые можно увидеть
+          Было \u2014 стало
         </h2>
         <p
           className="text-muted-foreground/70 text-center text-sm max-w-md mx-auto mb-10"
@@ -43,13 +54,13 @@ const ReviewsSection = () => {
           Конкретные изменения за конкретный срок
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
           {reviews.map((review, i) => (
             <div
               key={i}
               className="bg-card/40 border border-border/50 rounded-xl p-4 hover:border-accent/25 transition-all duration-300"
             >
-              <div className="flex items-center gap-2.5 mb-2.5">
+              <div className="flex items-center gap-2.5 mb-2">
                 <div className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-xs">
                   {review.name[0]}
                 </div>
@@ -63,14 +74,32 @@ const ReviewsSection = () => {
                 </div>
               </div>
               <p
-                className="text-accent font-semibold text-sm mb-1.5"
+                className="text-accent font-semibold text-sm mb-2"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {review.result}
               </p>
-              <p className="text-muted-foreground text-xs leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
-                {review.text}
+              <p className="text-muted-foreground/60 text-xs leading-relaxed mb-1" style={{ fontFamily: "var(--font-body)" }}>
+                {review.was}
               </p>
+              <p className="text-foreground/80 text-xs leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
+                {review.became}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p
+          className="text-muted-foreground text-sm text-center mb-5 font-body"
+        >
+          Почему не бросают? Структура и контроль делают тренировки понятными.
+        </p>
+
+        <div className="flex flex-col items-center gap-2.5 max-w-lg mx-auto">
+          {microReviews.map((m, i) => (
+            <div key={i} className="flex items-start gap-2 text-muted-foreground/70 text-xs font-body">
+              <MessageCircle className="w-3.5 h-3.5 text-accent/40 shrink-0 mt-0.5" />
+              <span>{m}</span>
             </div>
           ))}
         </div>
