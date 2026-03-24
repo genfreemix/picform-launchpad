@@ -81,6 +81,11 @@ const ContactsSection = () => {
               <Send className="w-4 h-4" />
               Записаться
             </button>
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-3">
+              {["Ответим в течение дня", "Можно просто задать вопрос", "Без обязательств"].map((t) => (
+                <span key={t} className="text-muted-foreground/60 text-xs font-body">{t}</span>
+              ))}
+            </div>
           </form>
         </div>
 

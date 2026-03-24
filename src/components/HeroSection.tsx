@@ -37,7 +37,7 @@ const HeroSection = () => {
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-6 font-body leading-relaxed">
           Системные тренировки с контролем прогресса<br className="hidden md:block" />
-          в окружении людей, которые работают на результат
+          и заметным результатом уже в первые недели
         </p>
 
         {/* Offer */}

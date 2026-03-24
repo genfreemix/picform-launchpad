@@ -10,6 +10,7 @@ import PricingSection from "@/components/PricingSection";
 import ReferralSection from "@/components/ReferralSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import ContactsSection from "@/components/ContactsSection";
+import CtaFinalSection from "@/components/CtaFinalSection";
 import LampDivider from "@/components/LampDivider";
 import { useSparkEffect } from "@/hooks/useSparkEffect";
 
@@ -40,6 +41,7 @@ const Index = () => {
       <ReviewsSection />
       <LampDivider />
       <ContactsSection />
+      <CtaFinalSection />
     </main>
   );
 };
