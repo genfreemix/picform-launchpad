@@ -25,10 +25,10 @@ const TrainerSection = () => {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-6">
                 <h3 className="text-2xl font-bold text-foreground font-display">
-                  Главный тренер
+                  Шевченко Сергей Станиславович
                 </h3>
                 <p className="text-primary font-display tracking-wider text-sm">
-                  CrossFit Level 3 Trainer
+                  Главный тренер
                 </p>
               </div>
             </div>
@@ -37,14 +37,14 @@ const TrainerSection = () => {
           {/* Trainer info */}
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
-              Более 10 лет в профессиональном кроссфите. Подготовил сотни атлетов от начинающего уровня до соревновательного. Индивидуальный подход и проверенная методика тренировок.
+              Дипломированный тренер по функциональному многоборью (СВГУ «Физкультура и спорт»). 10 лет тренерского стажа, 19 организованных соревнований разного масштаба.
             </p>
 
             <div className="space-y-4">
               {[
-                { title: "Персональные программы", desc: "Составление индивидуального плана тренировок под ваши цели" },
-                { title: "Контроль техники", desc: "Постоянная работа над правильной техникой выполнения упражнений" },
-                { title: "Нутрициология", desc: "Рекомендации по питанию для максимального результата" },
+                { title: "Председатель Федерации", desc: "Прошел путь председателя Федерации по функциональному многоборью Магаданской области" },
+                { title: "Участник ЧР 2022", desc: "Участник чемпионата России и первенства по функциональному многоборью 2022 года" },
+                { title: "Призёр соревнований", desc: "Призер и победитель региональных соревнований по функциональному многоборью" },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4 items-start">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">

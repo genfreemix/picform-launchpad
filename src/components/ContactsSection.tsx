@@ -1,10 +1,10 @@
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const contactInfo = [
-  { icon: MapPin, label: "Адрес", value: "Рязань" },
-  { icon: Phone, label: "Телефон", value: "+7 (999) 123-45-67" },
-  { icon: Mail, label: "Email", value: "info@pikform.ru" },
-  { icon: Clock, label: "Режим работы", value: "Пн–Сб: 7:00–22:00, Вс: 9:00–20:00" },
+  { icon: MapPin, label: "Адрес", value: "Рязань, Заводской проезд 1, подъезд 8, цокольный этаж" },
+  { icon: Phone, label: "Телефон", value: "+7 (900) 604-44-33" },
+  { icon: Mail, label: "Email", value: "peakform62@mail.ru" },
+  { icon: Clock, label: "Режим работы", value: "Пн–Пт: 09:00–20:00, Сб: 10:00–17:00, Вс: выходной" },
 ];
 
 const ContactsSection = () => {
@@ -90,6 +90,18 @@ const ContactsSection = () => {
         >
           Время сильных решений
         </h2>
+
+        {/* Яндекс Карта */}
+        <div className="mt-12 max-w-5xl mx-auto rounded-2xl overflow-hidden border border-border">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?pt=39.7029854,54.6328553&z=16&l=map"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            title="Карта проезда к залу Пик Форм"
+          />
+        </div>
       </div>
     </section>
   );
