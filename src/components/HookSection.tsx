@@ -3,11 +3,11 @@ import { Target } from "lucide-react";
 const pairs = [
   {
     question: "Ходишь в зал, но результата нет",
-    answer: "Сложно выйти на стабильный прогресс без системы",
+    answer: "Система — основа стабильного прогресса",
   },
   {
     question: "Начинаешь тренироваться — и быстро сливаешься",
-    answer: "Нужна структура, которая помогает держаться в процессе",
+    answer: "Структура помогает держаться в процессе",
   },
   {
     question: "Форма уже не та, что раньше",
@@ -33,7 +33,7 @@ const HookSection = () => {
             Знакомо?
           </h2>
 
-          <div className="space-y-5 mb-8">
+          <div className="space-y-4 mb-6">
             {pairs.map((p) => (
               <div key={p.question} className="text-center">
                 <p className="text-muted-foreground text-sm font-body mb-1.5">
@@ -49,16 +49,13 @@ const HookSection = () => {
             ))}
           </div>
 
-          <div className="h-px bg-accent/15 max-w-[200px] mx-auto mb-6" />
+          <div className="h-px bg-accent/15 max-w-[200px] mx-auto mb-5" />
 
           <p
-            className="text-base md:text-lg font-semibold text-foreground mb-2 text-center"
+            className="text-lg md:text-xl font-bold text-foreground text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Решение — не в мотивации
-          </p>
-          <p className="text-muted-foreground text-sm font-body max-w-sm mx-auto text-center">
-            А в системе тренировок и контроле прогресса
+            Решение — система тренировок и контроль прогресса
           </p>
         </div>
       </div>
