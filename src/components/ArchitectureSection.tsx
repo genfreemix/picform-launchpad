@@ -18,7 +18,7 @@ const ArchitectureSection = () => {
     <section className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
-          Пространство силы
+          Пространство для результата
         </p>
         <h2
           className="text-3xl md:text-5xl font-bold text-foreground text-center mb-4"
@@ -30,7 +30,7 @@ const ArchitectureSection = () => {
           className="text-muted-foreground text-center max-w-2xl mx-auto mb-14"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Оснащён всем необходимым инвентарём и оборудованием для занятий кроссфитом. Функциональные и силовые рамы, штанги, гантели, гири, гребные тренажёры, аэробайки и плиометрические тумбы.
+          Оборудование для серьёзных тренировок: силовые рамы, штанги, гири, гребные тренажёры, аэробайки. Без очередей — малые группы и рабочая атмосфера.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">

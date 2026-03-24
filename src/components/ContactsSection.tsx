@@ -9,7 +9,7 @@ const contactInfo = [
 
 const ContactsSection = () => {
   return (
-    <section className="section-dark py-10 md:py-14">
+    <section id="contacts" className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
           Связаться с нами
@@ -53,7 +53,7 @@ const ContactsSection = () => {
               className="text-xl font-bold text-foreground mb-2"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Оставить заявку
+              Записаться на первую тренировку
             </h3>
             <input
               type="text"
@@ -79,7 +79,7 @@ const ContactsSection = () => {
               style={{ fontFamily: "var(--font-display)" }}
             >
               <Send className="w-4 h-4" />
-              Отправить
+              Записаться
             </button>
           </form>
         </div>
@@ -88,7 +88,7 @@ const ContactsSection = () => {
           className="neon-text text-3xl md:text-5xl lg:text-6xl font-bold text-center mt-16 uppercase tracking-wider"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Время сильных решений
+          Первый шаг — самый важный
         </h2>
 
         {/* Яндекс Карта */}

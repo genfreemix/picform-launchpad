@@ -3,37 +3,37 @@ const steps = [
     number: "1",
     title: "Разминка",
     description:
-      "Суставная разминка, раскатка на массажном ролле, лёгкое кардио на аэробайке или гребле (5 минут).",
+      "Подготовка суставов и мышц к нагрузке. Суставная разминка, массажный ролл, лёгкое кардио.",
   },
   {
     number: "2",
     title: "Разминочный комплекс",
     description:
-      "Несколько подходов для разогрева мышц. Работа со своим весом или лёгким инвентарём.",
+      "Включение основных мышечных групп. Работа со своим весом или лёгким инвентарём.",
   },
   {
     number: "3",
     title: "Силовой комплекс",
     description:
-      "Одно из базовых упражнений: жимовые упражнения, приседания, становая тяга, толчки и рывки.",
+      "Развитие базовой силы. Жимы, приседания, тяги, толчки, рывки — с контролем техники.",
   },
   {
     number: "4",
-    title: "Workout of the Day (WOD)",
+    title: "WOD — тренировка дня",
     description:
-      "Основная высокоинтенсивная тренировка дня: AMRAP, EMOM, AFAP, Chipper, Tabata.",
+      "Основная работа: высокоинтенсивные комплексы AMRAP, EMOM, AFAP, Tabata. Именно здесь растёт выносливость.",
   },
   {
     number: "5",
     title: "Закрепляющий комплекс",
     description:
-      "Несколько подходов на дополнительную закачку мышц, работавших в комплексе дня.",
+      "Дополнительная проработка целевых мышц для закрепления нагрузки.",
   },
   {
     number: "6",
     title: "Заминка",
     description:
-      "Кардио, растяжка и МФР для расслабления мышц и восстановления после тренировки.",
+      "Восстановление: кардио, растяжка и МФР. Тело возвращается в спокойный режим.",
   },
 ];
 
@@ -42,22 +42,28 @@ const TrainingProcessSection = () => {
     <section id="training-process" className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
-          Как проходит тренировка
+          Система тренировок
         </p>
         <h2
           className="text-3xl md:text-5xl font-bold text-foreground text-center mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Структура занятия
+          Каждая тренировка — по плану
         </h2>
         <p
-          className="text-muted-foreground text-center max-w-xl mx-auto mb-14"
+          className="text-muted-foreground text-center max-w-xl mx-auto mb-4"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Тренировки проводятся группами до{" "}
+          Группы до{" "}
           <span className="text-accent font-semibold">6 человек</span>,
           продолжительность ~{" "}
           <span className="text-accent font-semibold">2 часа</span>
+        </p>
+        <p
+          className="text-muted-foreground/70 text-center text-sm max-w-lg mx-auto mb-14"
+          style={{ fontFamily: "var(--font-body)" }}
+        >
+          Каждый элемент — часть системы, которая ведёт к измеримому результату
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">

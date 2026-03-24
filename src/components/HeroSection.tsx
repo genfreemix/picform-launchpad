@@ -30,16 +30,16 @@ const HeroSection = () => {
         <h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight select-none"
         >
-          <span className="neon-text">Раскрой свой</span> <span className="neon-text">предел</span>
+          <span className="neon-text">Верни форму.</span> <span className="neon-text">Силу. Контроль.</span>
         </h1>
 
         {/* UTP 2 - Glitch */}
-        <p className="glitch-text text-base md:text-xl lg:text-2xl font-display font-bold uppercase tracking-widest mb-4 whitespace-nowrap" data-text="Ультрановая система поэтапной трансформации тела и характера">
-          Ультрановая система поэтапной трансформации тела и характера
+        <p className="glitch-text text-base md:text-xl lg:text-2xl font-display font-bold uppercase tracking-widest mb-4" data-text="Системные тренировки · Контроль прогресса · Результат за 8 недель">
+          Системные тренировки · Контроль прогресса · Результат за 8 недель
         </p>
 
-        <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto mb-4 font-body">
-          Единственный кроссфит зал с персональным подходом к каждому клиенту
+        <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-4 font-body">
+          Малые группы до 6 человек. Контроль техники. Измеримый прогресс каждую неделю.
         </p>
 
         {/* Offer */}
@@ -60,16 +60,16 @@ const HeroSection = () => {
             href="#trainer"
             className="border border-foreground/30 text-foreground hover:bg-foreground/10 font-display text-lg px-8 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider"
           >
-            Узнать больше
+            Узнать свой уровень
           </a>
         </div>
 
         {/* Stats */}
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-xl mx-auto">
           {[
-            { value: "500+", label: "Атлетов" },
-            { value: "10+", label: "Лет опыта" },
-            { value: "24/7", label: "Доступ" },
+            { value: "10+", label: "Лет опыта тренера" },
+            { value: "до 6", label: "Человек в группе" },
+            { value: "8", label: "Недель до результата" },
           ].map((stat) => (
             <div key={stat.label}>
               <div className="font-display text-3xl md:text-4xl font-bold text-gradient-fire">

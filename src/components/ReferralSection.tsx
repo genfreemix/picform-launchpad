@@ -5,13 +5,13 @@ const steps = [
     icon: Users,
     number: "01",
     title: "Расскажи другу",
-    description: "Поделись информацией о PIKFORM CROSSFIT с другом, коллегой или близким",
+    description: "Расскажи тому, с кем хочешь тренироваться вместе",
   },
   {
     icon: Dumbbell,
     number: "02",
     title: "Он приходит на тренировку",
-    description: "Твой друг записывается и посещает первую тренировку в нашем зале",
+    description: "Он приходит на первую тренировку и оценивает формат",
   },
   {
     icon: Gift,
@@ -27,19 +27,19 @@ const ReferralSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
-          Реферальная программа
+          Окружение решает
         </p>
         <h2
           className="text-3xl md:text-5xl font-bold text-foreground text-center mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Приведи друга
+          Тренируйся с теми, кому доверяешь
         </h2>
         <p
           className="text-muted-foreground text-center max-w-xl mx-auto mb-14"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Каждому — <span className="text-accent font-semibold">1 000 ₽</span> на следующий уровень трансформации
+          Приведи друга — получите по <span className="text-accent font-semibold">1 000 ₽</span> на абонемент
         </p>
 
         {/* Steps */}
@@ -91,13 +91,13 @@ const ReferralSection = () => {
               className="text-2xl md:text-3xl font-bold text-foreground mb-3"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Приведи. Заработай. Расти.
+              Правильное окружение — половина результата
             </p>
             <p
               className="text-muted-foreground text-sm mb-6"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Трансформируйтесь вместе — выгода для каждого
+              Тренируйтесь вместе — скидка обоим
             </p>
             <a
               href="#contacts"

@@ -8,7 +8,7 @@ const plans = [
     features: [
       "2 тренировки в неделю",
       "8 тренировок в месяц",
-      "Групповые занятия до 6 человек",
+      "Группы до 6 человек",
       "Контроль техники от тренера",
     ],
     highlighted: false,
@@ -20,9 +20,9 @@ const plans = [
     features: [
       "3 тренировки в неделю",
       "12 тренировок в месяц",
-      "Групповые занятия до 6 человек",
-      "Контроль техники от тренера",
-      "Индивидуальные рекомендации",
+      "Группы до 6 человек",
+      "Контроль техники + рекомендации",
+      "Оптимальный темп для прогресса за 8 недель",
     ],
     highlighted: true,
   },
@@ -32,10 +32,10 @@ const plans = [
     period: "мес",
     features: [
       "Свободное посещение",
-      "Неограниченное количество тренировок",
-      "Групповые занятия до 6 человек",
-      "Контроль техники от тренера",
-      "Приоритетная запись",
+      "Без ограничений по количеству тренировок",
+      "Группы до 6 человек",
+      "Контроль техники + приоритетная запись",
+      "Максимальный прогресс за месяц",
     ],
     highlighted: false,
   },
@@ -46,19 +46,19 @@ const PricingSection = () => {
     <section className="section-dark py-10 md:py-14">
       <div className="container mx-auto px-4">
         <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 text-center font-body">
-          Абонементы
+          Участие в системе
         </p>
         <h2
           className="text-3xl md:text-5xl font-bold text-foreground text-center mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Выбери свой план
+          Выбери свой формат
         </h2>
         <p className="text-muted-foreground text-center max-w-xl mx-auto mb-4" style={{ fontFamily: "var(--font-body)" }}>
-          Разовое посещение тренировки — <span className="text-accent font-semibold">1 500 ₽</span>, консультация бесплатна
+          Разовое посещение — <span className="text-accent font-semibold">1 500 ₽</span>, консультация бесплатна
         </p>
         <p className="text-muted-foreground text-center max-w-xl mx-auto mb-14 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-          Тренировки проводятся группами до 6 человек, продолжительность ~ 2 часа
+          Абонемент — это не просто доступ в зал. Это работа по системе с контролем прогресса.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -104,7 +104,7 @@ const PricingSection = () => {
                 }`}
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Выбрать план
+                Начать тренировки
               </button>
             </div>
           ))}

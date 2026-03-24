@@ -6,10 +6,10 @@ const TrainerSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-primary font-display text-sm tracking-[0.3em] mb-2 uppercase">
-            Наш тренер
+            Тренер и наставник
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            Твой путь к <span className="text-gradient-fire">результату</span>
+            Контроль на <span className="text-gradient-fire">каждом шаге</span>
           </h2>
         </div>
 
@@ -37,14 +37,14 @@ const TrainerSection = () => {
           {/* Trainer info */}
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
-              Дипломированный тренер по функциональному многоборью (СВГУ «Физкультура и спорт»). 10 лет тренерского стажа, 19 организованных соревнований разного масштаба.
+              Дипломированный тренер по функциональному многоборью (СВГУ). 10 лет тренерского стажа, 19 организованных соревнований. Контролирует технику каждого участника, адаптирует нагрузку под уровень и отслеживает прогресс.
             </p>
 
             <div className="space-y-4">
               {[
-                { title: "Председатель Федерации", desc: "Прошел путь председателя Федерации по функциональному многоборью Магаданской области" },
-                { title: "Участник ЧР 2022", desc: "Участник чемпионата России и первенства по функциональному многоборью 2022 года" },
-                { title: "Призёр соревнований", desc: "Призер и победитель региональных соревнований по функциональному многоборью" },
+                { title: "10 лет тренерского опыта", desc: "Председатель Федерации по функциональному многоборью Магаданской области. Диплом СВГУ." },
+                { title: "Практик, а не теоретик", desc: "Участник чемпионата России 2022. Тренирует через собственный опыт и понимание процесса." },
+                { title: "Контроль и результат", desc: "Каждый участник получает внимание, коррекцию техники и нагрузку, адаптированную под его уровень." },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4 items-start">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -62,7 +62,7 @@ const TrainerSection = () => {
               href="#"
               className="inline-block bg-primary hover:bg-primary/80 text-primary-foreground font-display text-lg px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 uppercase tracking-wider mt-4"
             >
-              Записаться к тренеру
+              Записаться на тренировку
             </a>
           </div>
         </div>
