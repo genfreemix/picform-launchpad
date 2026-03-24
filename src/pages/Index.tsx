@@ -1,7 +1,10 @@
 import HeroSection from "@/components/HeroSection";
+import HookSection from "@/components/HookSection";
 import TrainerSection from "@/components/TrainerSection";
 import ProgramSection from "@/components/ProgramSection";
+import FormatsSection from "@/components/FormatsSection";
 import TrainingProcessSection from "@/components/TrainingProcessSection";
+import ResultSection from "@/components/ResultSection";
 import ArchitectureSection from "@/components/ArchitectureSection";
 import PricingSection from "@/components/PricingSection";
 import ReferralSection from "@/components/ReferralSection";
@@ -17,12 +20,16 @@ const Index = () => {
     <main className="bg-background min-h-screen" onClick={triggerSpark}>
       <SparkLayer />
       <HeroSection />
+      <HookSection />
       <LampDivider />
       <TrainerSection />
       <LampDivider />
       <ProgramSection />
+      <FormatsSection />
       <LampDivider />
       <TrainingProcessSection />
+      <LampDivider />
+      <ResultSection />
       <LampDivider />
       <ArchitectureSection />
       <LampDivider />
