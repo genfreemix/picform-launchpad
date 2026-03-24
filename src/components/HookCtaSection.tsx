@@ -6,10 +6,13 @@ const HookCtaSection = () => {
           className="text-foreground text-base md:text-lg font-semibold mb-2"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Понять свой уровень — первый шаг к результату
+          Узнать свой уровень — первый шаг к результату
+        </p>
+        <p className="text-muted-foreground text-sm font-body mb-1.5">
+          Покажем, с чего начать и как выстроить тренировки под тебя
         </p>
         <p className="text-muted-foreground text-sm font-body mb-5">
-          Покажем, с чего начать и как выстроить тренировки под тебя
+          Подберём формат тренировок под твой уровень
         </p>
         <a
           href="#contacts"
