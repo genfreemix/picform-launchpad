@@ -1,15 +1,15 @@
 const gymPhotos = [
   {
-    src: "https://optim.tildacdn.com/stor3833-6662-4362-b535-386166303838/-/resize/560x/-/format/webp/25542583.jpg.webp",
-    alt: "Функциональная рама и кольца в спортзале для кроссфита",
+    src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80",
+    alt: "Тренажёрный зал — силовые рамы и штанги",
   },
   {
-    src: "https://optim.tildacdn.com/stor3066-6332-4164-b132-303430343564/-/resize/560x/-/format/webp/25542588.jpg.webp",
-    alt: "Гребной тренажёр, аэробайк и волболы для занятий кроссфитом",
+    src: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=80",
+    alt: "Кроссфит-тренировка в зале",
   },
   {
-    src: "https://optim.tildacdn.com/stor3764-3539-4464-b437-656439353833/-/resize/560x/-/format/webp/25542589.jpg.webp",
-    alt: "Плиометрические тумбы для занятий кроссфитом",
+    src: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=600&q=80",
+    alt: "Оборудование для функциональных тренировок",
   },
 ];
 
