@@ -10,7 +10,7 @@ const HeroSection = () => {
         <img
           src={heroBg}
           alt="Кроссфит зал ПИКФОРМ"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover hero-image"
         />
         <div className="absolute inset-0 hero-overlay" />
       </div>
@@ -30,8 +30,8 @@ const HeroSection = () => {
         <h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight select-none"
         >
-          <span className="neon-text">Верни форму и силу</span>{" "}
-          <span className="neon-text">за 8 недель</span>
+          <span className="hero-title-glow">Верни форму и силу</span>{" "}
+          <span className="hero-title-glow">за 8 недель</span>
         </h1>
 
         {/* Subheadline */}
